@@ -75,18 +75,18 @@ export default class ImagePickerMobile extends React.Component {
         this._upoladVideo(result.uri);
 
     };
-    _upoladVideo = async (videoUri) => {
+    _upoladVideo = async (uri) => {
 
         let formData = new FormData();
 
-        console.log("In side uploading video-->>" + videoUri);
-        let video = videoUri;
-        let uriParts = video.split('.');
+        console.log("In side uploading video-->>" + uri);
+        
+        let uriParts = uri.split('.');
         let fileType = uriParts[uriParts.length - 1];
 
         
         formData.append('video', {
-            video,
+            uri,
             name: `photo.${fileType}`,
             type: `video/${fileType}`,
         });
